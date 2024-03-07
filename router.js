@@ -12,4 +12,5 @@ router.post("/entry",dataEntry);
 // About page route
 router.post("/register", register);
 
+router.get('/',(req, res) => res.send("Express on vercel"));
 module.exports = router;
