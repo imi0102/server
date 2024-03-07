@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 5000;
 app.use(express.json());
 app.use(cors());
 
-mongoose.connect('mongodb://localhost:27017/login', {
+mongoose.connect('mongodb+srv://adimi0125:adimi0125@clustor0.uinwwnr.mongodb.net/?retryWrites=true&w=majority&appName=clustor0/login', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
