@@ -1,6 +1,4 @@
 const Login = require('./login.js');
-//const bcrypt = require('bcrypt');
-const bcrypt = require('bcryptjs');
 
 // Login endpoint
 exports.login =  async (req, res) => {
@@ -12,10 +10,8 @@ exports.login =  async (req, res) => {
         if (!user) {
           return res.status(404).send("User not found");
         }
-    
+        const passwordMatch = user.password === password;
         // Check password
-        const passwordMatch = await bcrypt.compare(password, user.password);
-        //const isPasswordValid = await bcrypt.compare(password, user.password);
         if (passwordMatch) {
           res.send("Login successful");
         } else {
@@ -33,20 +29,16 @@ exports.register = async (req, res) =>{
         const { username, password } = req.body;
     
         // Check if user already exists
-        const existingUser = await Login.findOne({ username });
-    
-        if (existingUser) {
-          return res.status(400).send("User already exists");
-        }
-    
-        // Hash the password
-        const hashedPassword = await bcrypt.hash(password, 10);
-        //const hashedPassword = await bcrypt.hash(password, 10);
+       const existingUser = await Login.findOne({ username });
+
+       if (existingUser) {
+         return res.status(400).send("User already exists");
+       }
     
         // Create a new user instance
         const newUser = new Login({
           username: username,
-          password: hashedPassword
+          password: password
         });
     
         // Save the user to the database
