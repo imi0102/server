@@ -1,5 +1,6 @@
 const Login = require('./login.js');
 //const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 
 // Login endpoint
 exports.login =  async (req, res) => {
@@ -13,12 +14,13 @@ exports.login =  async (req, res) => {
         }
     
         // Check password
+        const passwordMatch = await bcrypt.compare(password, user.password);
         //const isPasswordValid = await bcrypt.compare(password, user.password);
-        //if (isPasswordValid) {
+        if (passwordMatch) {
           res.send("Login successful");
-        //} else {
-          //res.status(401).send("Invalid password");
-        //}
+        } else {
+          res.status(401).send("Invalid password");
+        }
       } catch (error) {
         console.error("Error logging in:", error);
         res.status(500).send("Error logging in");
@@ -38,12 +40,13 @@ exports.register = async (req, res) =>{
         }
     
         // Hash the password
+        const hashedPassword = await bcrypt.hash(password, 10);
         //const hashedPassword = await bcrypt.hash(password, 10);
     
         // Create a new user instance
         const newUser = new Login({
           username: username,
-          password: password
+          password: hashedPassword
         });
     
         // Save the user to the database
