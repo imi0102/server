@@ -70,6 +70,7 @@ mongoose.connect('mongodb+srv://adimi0125:adimi0125@clustor0.uinwwnr.mongodb.net
 // });
 
 app.use('/v1',router);
+app.get('/',(req, res) => res.send("Express on vercel app"));
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
