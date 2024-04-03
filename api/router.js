@@ -2,6 +2,7 @@
 
 const express = require("express");
 const {login, register} = require("./login_api");
+const {register} = require("./register_api");
 const {dataEntry} = require("./entry/entry");
 const router = express.Router();
 
