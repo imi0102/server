@@ -1,17 +1,17 @@
 // wiki.js - Wiki route module
 
 const express = require("express");
-const {login, register} = require("./login_api");
-const {register} = require("./register_api");
-const {dataEntry} = require("./entry/entry");
+const login = require("./onboarding/login_api.js");
+const register = require("./onboarding/register_api.js");
+const addExpense = require("./expense/add_expesne_api.js");
 const router = express.Router();
 
 // Login route
-router.post("/login_api",login);
+router.post("/login",login);
 // Register route
-router.post("/register_api", register);
+router.post("/register", register);
 //Add Expense route
-router.post("/add_expense_api",dataEntry);
+router.post("/add_expense",addExpense);
 
 router.get('/',(req, res) => res.send("Express on vercel"));
 module.exports = router;
