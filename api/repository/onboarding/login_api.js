@@ -1,4 +1,5 @@
-const LoginModel = require("../../models/login_model");
+const LoginModel = require("../../../models/login_model");
+const ResponseModel = require("../../../models/response_model");
 
 exports.login =  async (req, res) => {
     try {
@@ -7,7 +8,7 @@ exports.login =  async (req, res) => {
         // Find user in database
         const user = await LoginModel.findOne({ email });
         if (!user) {
-          return res.status(404).json(ResponseModel.error('Family member not found',400));
+          return res.status(404).json(ResponseModel.error('Please check your credentials family member not found',400));
         }
         const passwordMatch = user.password === password;
         // Check password
@@ -18,7 +19,6 @@ exports.login =  async (req, res) => {
         }
       } catch (error) {
         console.error("Error logging in:", error);
-        res.status(500).json(ResponseModel.error('Error logging'));
-      
+        res.status(500).json(ResponseModel.error('Error to logging'));
       }
 }

@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const ApiConstants = require('../api/constatns/api_constants');
 
 const familyMembersSchema = new mongoose.Schema({
     id: String,
@@ -11,7 +12,7 @@ const familyMembersSchema = new mongoose.Schema({
     walletBalance: String,
     date: { type: Date, default: Date.now },
     createdDate: { type: Date, default: Date.now }
-});
+},{ __v: false });
 
-const UserModel = mongoose.model('family_members', familyMembersSchema);
-module.exports = UserModel;
+const FamilyMembers = mongoose.model(ApiConstants.FAMILY_MEMBERS_COLLECTION, familyMembersSchema);
+module.exports = FamilyMembers;

@@ -4,5 +4,5 @@ var loginSchema = new mongoose.Schema({
     email    : String,
     password    : String
   });
-  var LoginModel = mongoose.model('familyMembers', loginSchema);
+  var LoginModel = mongoose.model('family_members', loginSchema);
   module.exports = LoginModel;
