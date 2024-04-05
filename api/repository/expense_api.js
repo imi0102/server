@@ -8,7 +8,7 @@ exports.addExpense = async (req, res) => {
   try {
     var  expenseModel = req.body;
     // Add expense entry
-    const newExpense = await ExpenseModel(expenseModel);
+    const newExpense = await ExpenseModel.create(expenseModel);
     await newExpense.save();
        
     // Update wallet balance
