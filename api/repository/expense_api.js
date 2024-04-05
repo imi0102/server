@@ -1,4 +1,4 @@
-const  ExpenseModel = require('../../../models/expense_model');
+const  ExpenseModel = require('../../models/expense_model');
 const  ResponseModel = require('../../models/response_model');
 const  StringConstants = require('../constants/string_constants');
 const  FamilyMemberModel = require('../../models/family_member_model');
