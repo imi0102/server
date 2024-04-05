@@ -6,14 +6,15 @@ const  FamilyMemberModel = require('../../models/family_member_model');
 //Add Expesne
 exports.addExpense = async (req, res) => {
   try {
+    console.log('Request Body:', req.body);
     var  expenseModel = req.body;
-    console.log('Request Body:', expenseModel); // Log the request body
+     // Log the request body
     // Add expense entry
-    const newExpense = await ExpenseModel(expenseModel);
+    var newExpense = await ExpenseModel(expenseModel);
     await newExpense.save();
        
     // Update wallet balance
-    const { memberId, remainingWalletBalance } = expenseModel;
+    var { memberId, remainingWalletBalance } = expenseModel;
     await FamilyMemberModel.updateOne(
       { _id: memberId },
       { $set: { walletBalance: remainingWalletBalance } }
