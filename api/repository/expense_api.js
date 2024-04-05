@@ -9,14 +9,7 @@ exports.addExpense = async (req, res) => {
     var  expenseModel = req.body;
     console.log('Request Body:', expenseModel); // Log the request body
     // Add expense entry
-    //const newExpense = await ExpenseModel(expenseModel);
-    const newExpense = new ExpenseModel({
-      username: expenseModel.username,
-      description: expenseModel.description,
-      date: expenseModel.date,
-      amount: expenseModel.amount,
-      memberId:expenseModel.memberId
-    });
+    const newExpense = await ExpenseModel(expenseModel);
     await newExpense.save();
        
     // Update wallet balance
