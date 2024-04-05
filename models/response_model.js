@@ -1,6 +1,7 @@
 const ResponseModel = {
     success: (data = null, message = 'Success', status = 200) => {
         return {
+            status:status,
             success: true,
             data: data,
             message: message

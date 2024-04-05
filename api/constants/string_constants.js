@@ -15,10 +15,27 @@ class StringConstants {
         return 'Failed to add family code';
     }
 
-    static get CHECK_CREDENTIALS_FAMILY_MEMBER_NOT_FOUND() {
+    static get PLEASE_CHECK_YOUR_CREDENTIALS_FAMILY_MEMBER_NOT_FOUND() {
         return 'Please check your credentials family member not found';
     }
 
+    static get FAMILY_MEMBER_REGISTERED_SUCCESSFULLY() {
+        return 'Family Member Registerd Successfully';
+    }
+    static get WALLET_BALANCE_UPDATED_SUCCESSFULLY() {
+        return 'Wallet Balance Updated Successfully';
+    }
+    static get WALLET_HISTORY_NOT_FOUND() {
+        return 'Wallet History not found';
+    }
+    static get EXPENSE_ADDED_SUCCESSFULLY() {
+        return 'Expense Added Successfully';
+    }
+
+    static get EXPENSE_DATA_NOT_FOUND() {
+        return 'Expense data not found';
+    }
+    
     static get LOGIN_SUCCESSFUL() {
         return 'Login successful';
     }
@@ -29,6 +46,12 @@ class StringConstants {
 
     static get ERROR_TO_LOGGING() {
         return 'Error to logging';
+    }
+    static get ADMIN_ROLE() {
+        return 'Admin';
+    }
+    static get USER_ROLE() {
+        return 'User';
     }
 }
 
