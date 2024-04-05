@@ -7,6 +7,7 @@ const  FamilyMemberModel = require('../../models/family_member_model');
 exports.addExpense = async (req, res) => {
   try {
     var  expenseModel = req.body;
+    console.log('Request Body:', expenseModel); // Log the request body
     // Add expense entry
     const newExpense = await ExpenseModel.create(expenseModel);
     await newExpense.save();
@@ -17,6 +18,7 @@ exports.addExpense = async (req, res) => {
       { _id: memberId },
       { $set: { walletBalance: remainingWalletBalance } }
     );
+    console.log('newExpense:', newExpense); // Log the request body
     res.status(200).json(ResponseModel.success(newExpense, StringConstants.EXPENSE_ADDED_SUCCESSFULLY));
   } catch (error) {
     res.status(500).json({ error: error.message });
