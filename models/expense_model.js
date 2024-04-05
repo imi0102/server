@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const ApiConstants = require('../api/constants/api_constants');
 const baseSchema = require('./base_model');
 
-const expenseSchema = baseSchema.add({
+const expenseSchema = new mongoose.Schema({
   memberId: String,
   familyCode: String,
   familyCodeId: String,
