@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
-const ApiConstants = require('../api/constatns/api_constants');
+const ApiConstants = require('../api/constants/api_constants');
+const baseSchema = require('./base_model');
 
-var familyCodeSchema = new mongoose.Schema({
-    id    : String,
+var familyCodeSchema = baseSchema.add({
     familyCode : String
   });
-  var familyCodeModel = mongoose.model(ApiConstants.FAMILY_CODES_COLLECTION, familyCodeSchema);
-  module.exports = familyCodeModel;
+var familyCodeModel = mongoose.model(ApiConstants.FAMILY_CODES_COLLECTION, familyCodeSchema);
+module.exports = familyCodeModel;

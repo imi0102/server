@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
-const ApiConstants = require('../api/constatns/api_constants');
+const ApiConstants = require('../api/constants/api_constants');
+const baseSchema = require('./base_model');
 
-const expenseSchema = new mongoose.Schema({
-  id:String,
+const expenseSchema = baseSchema.add({
   memberId: String,
   familyCode: String,
   familyCodeId: String,
@@ -13,8 +13,7 @@ const expenseSchema = new mongoose.Schema({
   amount: String,
   remainingWalletBalance: String,
   category: String,
-  date: Date,
-  createdDate: { type: Date, default: Date.now },
+  date: Date
 });
 
 const ExpenseModel = mongoose.model(ApiConstants.EXPENSE_COLLECTION, expenseSchema);

@@ -1,20 +1,18 @@
 const express = require("express");
-const { login } = require("./api/repository/onboarding/login_api");
-const { register } = require("./api/repository/onboarding/registration_api");
-const { addFamilyCode } = require("./api/repository/onboarding/family_code_api");
-const { addExpense } = require("./api/repository/data_manager_api/add_expense_api");
-const { updateWalletBalance } = require("./api/repository/data_manager_api/update_wallet_balance_api");
-const ApiConstants = require("./api/constatns/api_constants");
+const { registerFamilyMember, addFamilyCode, login, getFamilyMembers } = require("./api/repository/onBoarding_api");
+const { addExpense, getExpenseData } = require("./api/repository/expense_api");
+const { addUpdateWalletBalance, getWalletBalanceHistory } = require("./api/repository/wallet_balance_api");
+const ApiConstants = require("./api/constants/api_constants");
 
 const router = express.Router();
 
 router.get('/',(req, res) => res.send("Express on vercel"));
 
 // CREATE_ADMIN_ACCOUNT
-router.post(ApiConstants.CREATE_ADMIN_ACCOUNT, register);
+router.post(ApiConstants.CREATE_ADMIN_ACCOUNT, registerFamilyMember);
 
 // CREATE_FAMILY_MEMBER_ACCOUNT
-router.post(ApiConstants.CREATE_FAMILY_MEMBER_ACCOUNT, register);
+router.post(ApiConstants.CREATE_FAMILY_MEMBER_ACCOUNT, registerFamilyMember);
 
 // Login
 router.post(ApiConstants.LOGIN_FAMILY_MEMBER, login);
@@ -25,11 +23,16 @@ router.post(ApiConstants.ADD_FAMILY_CODE, addFamilyCode);
 // Add Expense
 router.post(ApiConstants.ADD_EXPENSE, addExpense);
 
-// Add Wallet Balance
-router.post(ApiConstants.UPDATE_MEMBER_WALLET_BALANCE, updateWalletBalance);
+// Add/Update Wallet Balance
+router.post(ApiConstants.UPDATE_MEMBER_WALLET_BALANCE, addUpdateWalletBalance);
 
-// Update Wallet Balance
-router.post(ApiConstants.UPDATE_MEMBER_WALLET_BALANCE, updateWalletBalance);
+// Get Expense Data
+router.get(ApiConstants.GET_EXPENSE_DATA, getExpenseData);
 
+// Get Family Members Data
+router.get(ApiConstants.GET_FAMILY_MEMBERS, getFamilyMembers);
+
+// Get Wallet Balance History
+router.get(ApiConstants.GET_WALLET_BALANCE_HISTORY, getWalletBalanceHistory);
 
 module.exports = router;

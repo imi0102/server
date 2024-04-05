@@ -25,8 +25,8 @@ class ApiConstants {
         return '/updateMemberWalletBalance';
       }
     
-      static get GET_ENTRY_DATA() {
-        return '/getEntryData';
+      static get GET_EXPENSE_DATA() {
+        return '/getExpenseData';
       }
     
       static get GET_FAMILY_MEMBERS() {
