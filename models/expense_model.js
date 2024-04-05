@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const ApiConstants = require('../api/constants/api_constants');
 const baseSchema = require('./base_model');
 
-var expenseSchema = baseSchema.add({
+const expenseSchema = baseSchema.add({
   memberId: String,
   familyCode: String,
   familyCodeId: String,
@@ -16,6 +16,6 @@ var expenseSchema = baseSchema.add({
   date: Date
 });
 
-var ExpenseModel = mongoose.model(ApiConstants.EXPENSE_COLLECTION, expenseSchema);
+const ExpenseModel = mongoose.model(ApiConstants.EXPENSE_COLLECTION, expenseSchema);
 
 module.exports = ExpenseModel;

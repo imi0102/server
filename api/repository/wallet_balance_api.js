@@ -6,6 +6,7 @@ const StringConstants = require('../constants/string_constants');
 // Add / Update Wallet Balance 
 exports.addUpdateWalletBalance = async (req, res) => {
   try {
+    console.log("addUpdateWalletBalance body: ",req.body);
     var reqModel = req.body;
 
     // Update balance from Family Member
