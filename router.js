@@ -1,18 +1,18 @@
 const express = require("express");
-const { registerFamilyMember, addFamilyCode, login, getFamilyMembers } = require("./api/repository/onBoarding_api");
+const { createAdminAccount, createFamilyMemberAccount, addFamilyCode, login, getFamilyMembers } = require("./api/repository/onBoarding_api");
 const { addExpense, getExpenseData } = require("./api/repository/expense_api");
 const { addUpdateWalletBalance, getWalletBalanceHistory } = require("./api/repository/wallet_balance_api");
 const ApiConstants = require("./api/constants/api_constants");
 
 const router = express.Router();
 
-router.get('/',(req, res) => res.send("Express on vercel"));
+router.get('/', (req, res) => res.send("Express on vercel"));
 
 // CREATE_ADMIN_ACCOUNT
-router.post(ApiConstants.CREATE_ADMIN_ACCOUNT, registerFamilyMember);
+router.post(ApiConstants.CREATE_ADMIN_ACCOUNT, createAdminAccount);
 
 // CREATE_FAMILY_MEMBER_ACCOUNT
-router.post(ApiConstants.CREATE_FAMILY_MEMBER_ACCOUNT, registerFamilyMember);
+router.post(ApiConstants.CREATE_FAMILY_MEMBER_ACCOUNT, createFamilyMemberAccount);
 
 // Login
 router.post(ApiConstants.LOGIN_FAMILY_MEMBER, login);

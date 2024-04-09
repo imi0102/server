@@ -5,5 +5,5 @@ const baseSchema = require('./base_model');
 var familyCodeSchema = baseSchema.add({
     familyCode : String
   });
-var familyCodeModel = mongoose.model(ApiConstants.FAMILY_CODES_COLLECTION, familyCodeSchema);
-module.exports = familyCodeModel;
+var FamilyCodeModel = mongoose.model(ApiConstants.FAMILY_CODES_COLLECTION, familyCodeSchema);
+module.exports = FamilyCodeModel;

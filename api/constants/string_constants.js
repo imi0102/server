@@ -18,7 +18,10 @@ class StringConstants {
     static get PLEASE_CHECK_YOUR_CREDENTIALS_FAMILY_MEMBER_NOT_FOUND() {
         return 'Please check your credentials family member not found';
     }
-
+    static get FAMILY_MEMBER_ALREADY_EXISTS() {
+        return 'Family Member Already Exist.';
+    }
+    
     static get FAMILY_MEMBER_REGISTERED_SUCCESSFULLY() {
         return 'Family Member Registerd Successfully';
     }

@@ -1,6 +1,9 @@
 class ApiConstants {
 
     //End Points  
+    static get GENERATE_TOKEN() {
+      return '/generateToken';
+    }
     static get CREATE_ADMIN_ACCOUNT() {
       return '/createAdminAccount';
     }
